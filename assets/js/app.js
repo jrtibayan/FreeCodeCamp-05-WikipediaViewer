@@ -44,7 +44,7 @@ $(function() {
 
             var lineToAppend = '';
             for(i=0;i < model.searchResult.length;i++) {
-                lineToAppend += '<li class="search-item"><a href="#">';
+                lineToAppend += '<li class="search-item"><a href="https://en.wikipedia.org/?curid=' + model.searchResult[i].pageid + '" target="_blank">';
                 lineToAppend += '<h4>' + model.searchResult[i].title + '</h4>';
                 lineToAppend += '<p>' + model.searchResult[i].snippet + '</p>';
                 lineToAppend += '</a></li>';
