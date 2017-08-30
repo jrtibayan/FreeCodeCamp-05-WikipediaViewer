@@ -8,12 +8,26 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <main class="container">
-        <h1 id="title">Wikipedia Viewer</h1>
-        <a href="https://en.wikipedia.org/wiki/Special:Random"><span class="btn random">Random Article</span></a>
-        <input type="text" class="searchInput">
+    <main>
+        <div class="container">
+            <h1 id="title">Wikipedia Viewer</h1>
 
-        <ul class="searchResultList"></ul>
+            <div class="random">
+                <a href="https://en.wikipedia.org/wiki/Special:Random" target="_blank" >
+                    <div class="random-btn">
+                        <img src="assets/img/random.png" alt="dice icon for random article" class="random-article">
+                    </div>
+                </a>
+            </div>
+
+            <div class="search">
+                <div class="search-btn">
+                    <img src="assets/img/search.png" alt="dice icon for random article" class="random-article">
+                </div>
+                <input type="text" class="searchInput">
+            </div>
+            <ul class="searchResultList"></ul>
+        </div>
     </main>
 
     <footer class="app-info">

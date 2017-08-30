@@ -7,12 +7,79 @@ body{
     font-size: 16px;
 }
 
+input[type="text"] {
+    width: 100%;
+    border-radius: 4px;
+    border: 0 solid black;
+    line-height: 30px;
+    height: 30px;
+    padding: 0 10px;
+    margin: 0 10px;
+}
+
+.btn {
+    border-radius: 4px;
+    border: 0 solid black;
+    height: 30px;
+    padding: 0 10px;
+}
+
 
 main {
     background: #000;
     color: #fff;
-    min-height: calc(100vh - 40px);
-    overflow: hidden;
+    height: calc(100vh - 40px);
+    overflow: auto;
+}
+
+#title {
+    text-align: center;
+}
+
+.random {
+    background: blue;
+    position: fixed;
+    top: 0;
+    left: 100vw;
+    height: 100vh;
+    width: 100vw;
+}
+
+.random-btn {
+    position: absolute;
+    top: 60px;
+    left: -40px;
+    border: 1px solid white;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+}
+
+.search {
+    background: #000;
+    border: 1px solid #fff;
+    position: fixed;
+    top: 110;
+    left: 60px;
+    height: 70vh;
+    width: 100vw;
+}
+
+.search.hidden {
+    left: 100vw;
+}
+
+.search-btn {
+    position: absolute;
+    top: -1px;
+    left: -42px;
+    border: 1px solid white;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+    border-right: 1px solid #000;
+}
+
+.random-article {
+    height: 40px;
 }
 
 footer {
