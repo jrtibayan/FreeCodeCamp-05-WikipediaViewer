@@ -6,7 +6,6 @@
 $(function() {
     console.log("start JS");
 
-
     var model = {
         searchText: '',
         searchResult: [],
@@ -24,6 +23,8 @@ $(function() {
                 if (e.keyCode == 13) {
                     viewModel.updateSearchText(searchInputEle.val());
                     viewModel.searchWiki();
+                    $(".search-container").toggleClass("hidden");
+                    $(".list-container").toggleClass("hidden");
                 }
             });
 
@@ -33,6 +34,24 @@ $(function() {
             randomBtnEle.on('click', function(e) {
                 //e.preventDefault();
                 //alert('random clicked');
+            });
+
+            // show the search box
+            var searchShowBtn = $('.search.item');
+            searchShowBtn.on('click', function(e) {
+                //e.preventDefault();
+                //alert('random clicked');
+                $(".search-container").toggleClass("hidden");
+                console.log('search clicked');
+            });
+
+            // shows the list/search results
+            var listShowBtn = $('.list.item');
+            listShowBtn.on('click', function(e) {
+                //e.preventDefault();
+                //alert('random clicked');
+                $(".list-container").toggleClass("hidden");
+                console.log('search clicked');
             });
 
             console.log("end view init");

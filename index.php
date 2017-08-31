@@ -8,25 +8,31 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
+    <div class="buttons">
+        <div class="list item">
+            <img src="assets/img/list.png" alt="dice icon for random article" class="random-article">
+        </div>
+        <div class="search item active">
+            <img src="assets/img/search.png" alt="dice icon for random article" class="random-article">
+        </div>
+        <div class="random item">
+            <img src="assets/img/random.png" alt="dice icon for random article" class="random-article">
+        </div>
+    </div>
+
     <main>
         <div class="container">
             <h1 id="title">Wikipedia Viewer</h1>
 
-            <div class="random">
-                <a href="https://en.wikipedia.org/wiki/Special:Random" target="_blank" >
-                    <div class="random-btn">
-                        <img src="assets/img/random.png" alt="dice icon for random article" class="random-article">
-                    </div>
-                </a>
+            <div class="search-container hidden">
+                <p>Please type what you want to search below... </p>
+                <input type="text" class="searchInput" placeholder="Type here then press ENTER">
+                <p>Press ENTER when done</p>
             </div>
 
-            <div class="search">
-                <div class="search-btn">
-                    <img src="assets/img/search.png" alt="dice icon for random article" class="random-article">
-                </div>
-                <input type="text" class="searchInput">
+            <div class="list-container hidden">
+                <ul class="searchResultList"></ul>
             </div>
-            <ul class="searchResultList"></ul>
         </div>
     </main>
 

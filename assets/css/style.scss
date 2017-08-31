@@ -1,3 +1,5 @@
+/* sass --watch style.scss:style.css */
+
 *, *:before, *:after {
     box-sizing: border-box;
 }
@@ -26,6 +28,7 @@ input[type="text"] {
 
 
 main {
+    margin-top: -40px;
     background: #000;
     color: #fff;
     height: calc(100vh - 40px);
@@ -36,13 +39,40 @@ main {
     text-align: center;
 }
 
-.random {
+.buttons {
+    position: relative;
+    top: calc(100vh - 80px);
+    height: 40px;
+    width: 100vw;
+    text-align: center;
+}
+
+.buttons .item {
+    background: #000;
+    width: 40px;
+    height: 40px;
+    border: 1px solid #fff;
+    display: inline-block;
+    border-bottom: 0px solid white;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+
+.hidden {
+    display: none;
+}
+
+.buttons .item.active{
+    background: red;
+}
+
+.random {/*
     background: blue;
     position: fixed;
     top: 0;
     left: 100vw;
     height: 100vh;
-    width: 100vw;
+    width: 100vw;*/
 }
 
 .random-btn {
@@ -54,14 +84,14 @@ main {
     border-bottom-left-radius: 6px;
 }
 
-.search {
+.search {/*
     background: #000;
     border: 1px solid #fff;
     position: fixed;
-    top: 110;
+    top: 110px;
     left: 60px;
     height: 70vh;
-    width: 100vw;
+    width: 100vw;*/
 }
 
 .search.hidden {
@@ -76,6 +106,24 @@ main {
     border-top-left-radius: 6px;
     border-bottom-left-radius: 6px;
     border-right: 1px solid #000;
+}
+
+.list {/*
+    background: blue;
+    position: fixed;
+    top: 0;
+    left: 100vw;
+    height: 100vh;
+    width: 100vw;*/
+}
+
+.list-btn {
+    position: absolute;
+    top: 160px;
+    left: -40px;
+    border: 1px solid white;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
 }
 
 .random-article {
@@ -105,7 +153,9 @@ footer p {
 ul {
     list-style-type: none;
     padding: 0;
+    margin-bottom: 50px;
 }
+
 ul li h4 {
     font-size: 1.4em;
     margin: 10px 0 10px;
