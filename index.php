@@ -24,7 +24,7 @@
         <div class="container">
             <h1 id="title">Wikipedia Viewer</h1>
 
-            <div class="search-container hidden">
+            <div class="search-container">
                 <p>Please type what you want to search below... </p>
                 <input type="text" class="searchInput" placeholder="Type here then press ENTER">
                 <p>Press ENTER when done</p>

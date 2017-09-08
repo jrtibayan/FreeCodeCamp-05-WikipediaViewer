@@ -6,6 +6,7 @@
 $(function() {
     console.log("start JS");
 
+
     var model = {
         searchText: '',
         searchResult: [],
@@ -17,42 +18,39 @@ $(function() {
         init: function() {
             console.log("start view init");
 
+
             // search for article when enter is pressed
             var searchInputEle = $('.searchInput');
             searchInputEle.on('keyup', function (e) {
                 if (e.keyCode == 13) {
-                    viewModel.updateSearchText(searchInputEle.val());
                     viewModel.searchWiki();
-                    $(".search-container").toggleClass("hidden");
-                    $(".list-container").toggleClass("hidden");
+                    //$(".search-container").toggleClass("hidden");
+                    //$(".list-container").toggleClass("hidden");
                 }
             });
 
 
-            // search for article when enter is pressed
+            // show random article
             var randomBtnEle = $('.btn.random');
             randomBtnEle.on('click', function(e) {
                 //e.preventDefault();
                 //alert('random clicked');
             });
 
+
             // show the search box
             var searchShowBtn = $('.search.item');
             searchShowBtn.on('click', function(e) {
-                //e.preventDefault();
-                //alert('random clicked');
-                $(".search-container").toggleClass("hidden");
-                console.log('search clicked');
+                viewModel.showSearch();
             });
+
 
             // shows the list/search results
             var listShowBtn = $('.list.item');
             listShowBtn.on('click', function(e) {
-                //e.preventDefault();
-                //alert('random clicked');
-                $(".list-container").toggleClass("hidden");
-                console.log('search clicked');
+                viewModel.showList();
             });
+
 
             console.log("end view init");
         },
@@ -79,6 +77,7 @@ $(function() {
         searchWiki: function() {
             console.log("start fetch data");
 
+            viewModel.updateSearchText($('.searchInput').val());
             url = model.url + model.searchText;
 
             // use getJSON with url to fetch data
@@ -104,6 +103,9 @@ $(function() {
             })
             .then(function() {
                 view.renderSearchResult();
+            })
+            .then(function() {
+                viewModel.showList();
             });
         },
 
@@ -128,7 +130,33 @@ $(function() {
 
         updateSearchText: function(searchText) {
             model.searchText = searchText;
-        }
+        },
+
+        showSearch: function() {
+            if ( $(".search-container").hasClass("hidden") ) {
+                $(".search-container")[0].classList.remove("hidden");
+                $(".list-container")[0].classList.add("hidden");
+                $(".buttons .list")[0].classList.remove("active");
+                $(".buttons .search")[0].classList.add("active");
+            }
+        },
+
+        showList: function() {
+            if ( $(".list-container").hasClass("hidden") ) {
+                $(".list-container")[0].classList.remove("hidden");
+                $(".search-container")[0].classList.add("hidden");
+                $(".buttons .list")[0].classList.add("active");
+                $(".buttons .search")[0].classList.remove("active");
+            }
+        },
+
+        hideList: function() {
+            if ( !$(".list-container")[0].hasClass("hidden") ) {
+                $(".list-container")[0].classList.add("hidden");
+                $(".search-container")[0].classList.remove("hidden");
+                $(".buttons .list")[0].classList.remove("active");
+            }
+        },
     };
 
     viewModel.init();
