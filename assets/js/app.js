@@ -37,6 +37,19 @@ $(function() {
                 //alert('random clicked');
             });
 
+            // show more details
+            var moreInfoBtnEle = $('.more-info-btn');
+            moreInfoBtnEle.on('click', function(e) {
+                viewModel.showMoreInfo();
+            });
+
+
+            // show more details
+            var closeInfoBtnEle = $('.close-btn');
+            closeInfoBtnEle.on('click', function(e) {
+                viewModel.hideMoreInfo();
+            });
+
 
             // show the search box
             var searchShowBtn = $('.search.item');
@@ -100,11 +113,9 @@ $(function() {
                 model.searchResult = resultsArr;
 
                 console.log("end fetch data");
-            })
-            .then(function() {
+            }).then(function() {
                 view.renderSearchResult();
-            })
-            .then(function() {
+            }).then(function() {
                 viewModel.showList();
             });
         },
@@ -133,30 +144,43 @@ $(function() {
         },
 
         showSearch: function() {
-            if ( $(".search-container").hasClass("hidden") ) {
-                $(".search-container")[0].classList.remove("hidden");
-                $(".list-container")[0].classList.add("hidden");
-                $(".buttons .list")[0].classList.remove("active");
-                $(".buttons .search")[0].classList.add("active");
-            }
+            $('.buttons .search')[0].classList.add("active");
+            $('.buttons .list')[0].classList.remove("active");
+            a = $(".list-container").animate( {opacity: 0}, 500 );
+            a.promise().done(
+                function() {
+                    $(".list-container")[0].classList.add("hidden");
+                    $(".search-container")[0].classList.remove("hidden");
+                    $(".search-container").animate({opacity: 1}, 500);
+                }
+            );
         },
 
         showList: function() {
-            if ( $(".list-container").hasClass("hidden") ) {
-                $(".list-container")[0].classList.remove("hidden");
-                $(".search-container")[0].classList.add("hidden");
-                $(".buttons .list")[0].classList.add("active");
-                $(".buttons .search")[0].classList.remove("active");
-            }
+            $('.buttons .list')[0].classList.add("active");
+            $('.buttons .search')[0].classList.remove("active");
+            a = $(".search-container").animate( {opacity: 0}, 500 );
+            a.promise().done(
+                function() {
+                    $(".search-container")[0].classList.add("hidden");
+                    $(".list-container")[0].classList.remove("hidden");
+                    $(".list-container").animate({opacity: 1}, 500);
+                }
+            );
         },
 
-        hideList: function() {
-            if ( !$(".list-container")[0].hasClass("hidden") ) {
-                $(".list-container")[0].classList.add("hidden");
-                $(".search-container")[0].classList.remove("hidden");
-                $(".buttons .list")[0].classList.remove("active");
-            }
+        showMoreInfo: function() {
+            $('.more-info').css('display', 'block');
+            $(".more-info").animate({top: 0}, 500);
         },
+
+        hideMoreInfo: function() {
+            $(".more-info").animate({opacity: 0}, 500, function() {
+                $('.more-info').css('opacity', '1');
+                $('.more-info').css('top', '100vh');
+                $('.more-info').css('display', 'none');
+            });
+        }
     };
 
     viewModel.init();
