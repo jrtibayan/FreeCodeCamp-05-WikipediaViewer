@@ -10,7 +10,7 @@ $(function() {
     var model = {
         searchText: '',
         searchResult: [],
-        url: 'https://en.wikipedia.org/w/api.php?action=query&format=json&list=search&callback=?&srlimit=20&srsearch='
+        url: 'https://en.wikipedia.org/w/api.php?action=query&format=json&list=search&callback=?&srlimit=100&srsearch='
     };
 
 
@@ -73,12 +73,26 @@ $(function() {
             console.log("start rendering view");
 
             var lineToAppend = '';
-            for(i=0;i < model.searchResult.length;i++) {
-                lineToAppend += '<li class="search-item"><a href="https://en.wikipedia.org/?curid=' + model.searchResult[i].pageid + '" target="_blank">';
-                lineToAppend += '<h4>' + model.searchResult[i].title + '</h4>';
-                lineToAppend += '<p>' + model.searchResult[i].snippet + '</p>';
-                lineToAppend += '</a></li>';
+
+            if(model.searchResult.length) {
+                for(i=0;i < model.searchResult.length;i++) {
+                    lineToAppend += '<li class="search-item"><a href="https://en.wikipedia.org/?curid=' + model.searchResult[i].pageid + '" target="_blank">';
+                    lineToAppend += '<h4>' + (i+1) + '. ' + model.searchResult[i].title + '</h4>';
+                    lineToAppend += '<p>' + model.searchResult[i].snippet + '</p>';
+                    lineToAppend += '</a></li>';
+                }
+            } else {
+                lineToAppend += '<li class="search-item">';
+                lineToAppend += '<h3>Your search did not match any documents.</h4>';
+                lineToAppend += '<h4>Suggestions:</h4>';
+                lineToAppend += '<ol>';
+                lineToAppend += '<li>Make sure that all words are spelled correctly.</li>';
+                lineToAppend += '<li>Try different keywords.</li>';
+                lineToAppend += '<li>Try more general keywords.</li>';
+                lineToAppend += '</ol>';
+                lineToAppend += '</li>';
             }
+
             $(".searchResultList").html(lineToAppend);
 
             console.log("end rendering view");
