@@ -16,6 +16,7 @@ input[type="text"] {
   height: 30px;
   line-height: 30px;
   padding: 0 10px;
+  text-align: center;
   width: 100%; }
 
 .btn {
@@ -35,6 +36,7 @@ main {
   overflow: auto; }
 
 .buttons {
+  background: #000;
   height: 40px;
   position: relative;
   text-align: center;
@@ -80,8 +82,7 @@ footer p {
 
 ul {
   list-style-type: none;
-  padding: 0;
-  margin-bottom: 50px; }
+  padding: 0; }
 
 ul li {
   padding: 0  10px 10px 10px;
@@ -122,12 +123,43 @@ li.search-item a {
   margin: 0 auto;
   max-width: 400px; }
 
-.close-btn {
-  margin: 20px 0 0 0;
-  width: 100%; }
+.more-info input[type="text"] {
+  text-align: left; }
+
+.more-info textarea {
+  padding: 10px 10px; }
+
+.more-info .btn {
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid white;
+  border-radius: 4px;
+  color: white;
+  font-size: 1em;
+  height: 40px;
+  line-height: 40px;
+  margin: 0;
+  text-align: center;
+  width: 100%;
+  z-index: 9999; }
+
+.more-info .close-btn {
+  margin: 20px 0 0 0; }
 
 form input, form .btn, form textarea {
   width: 100%; }
+
+.page-list {
+  text-align: center;
+  margin-bottom: 60px; }
+
+.page-button {
+  border: none;
+  width: 10%;
+  text-align: center; }
+
+.page-button.active {
+  background: #3c3c3c;
+  color: #fff; }
 
 .Aligner {
   display: flex;

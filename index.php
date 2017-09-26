@@ -26,21 +26,35 @@
     <main>
         <div class="container">
             <h1 id="title">Wikipedia Viewer</h1>
+        </div>
 
-            <div class="search-container">
-                <div class="Aligner">
-                    <div class="Aligner-item Aligner-item--top"></div>
-                    <div class="Aligner-item">
+        <div class="search-container">
+            <div class="Aligner">
+                <div class="Aligner-item Aligner-item--top"></div>
+                <div class="Aligner-item">
+                    <div class="container">
                         <p>Please type what you want to search below... </p>
                         <input type="text" class="searchInput" placeholder="Type here then press ENTER">
                         <p>Press ENTER when done</p>
                     </div>
-                    <div class="Aligner-item Aligner-item--bottom"></div>
                 </div>
+                <div class="Aligner-item Aligner-item--bottom"></div>
             </div>
+        </div>
 
+        <div class="container">
             <div class="list-container hidden">
-                <ul class="searchResultList"></ul>
+                <ul class="searchResultList">
+                    <li class="search-item">
+                        <h3>Search a keyword first before attempting to view search results.</h3>
+                        <h4>Instructions</h4>
+                        <ol>
+                            <li>Click Search Icon</li>
+                            <li>Type Your Keyword</li>
+                            <li>Press Enter</li>
+                        </ol>
+                </ul>
+                <div class="page-list"></div>
             </div>
         </div>
     </main>
@@ -69,16 +83,18 @@
                 <li>CSS3</li>
                 <li>JavaScript</li>
                 <li>JQuery</li>
+                <li>Wikipedia API</li>
             </ul>
-            <p>PS: For now the app only contains 7 quotes so you'll feel quotes are a little bit repetitive. Adding more quotes will solve this problem but instead of searching for more quotes to add, I decided to leave it as is for now and continue learning.</p>
-            <p>You may suggest a quote from your favorite tv/movie character by filling out the form below.</p>
-            <h3>Suggest A Quote</h3>
+            <p>PS: The search is limited to the top 100 results. Since the purpose of this app is to demonstrate my knowledge on the listed technolgies used, I believe setting a limit to the result should not reflect badly on my skills. This will also make the app search faster.</p>
+
+            <h3>Comment / Suggestions</h3>
+            <p>Have anything to say? Feel free to send me your thoughts on the form below.</p>
             <form method="POST" action="https://formspree.io/jeric_tibayan-webdev@yahoo.com">
                 <input type="text" name="name" id="name" placeholder="Name">
                 <textarea rows="5" name="quote" id="quote" placeholder="Quote"></textarea>
                 <input type="submit" class="btn">
             </form>
-            <button class="close-btn">CLOSE</button>
+            <button class="btn close-btn">CLOSE</button>
         </div>
     </div>
 

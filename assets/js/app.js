@@ -10,6 +10,8 @@ $(function() {
     var model = {
         searchText: '',
         searchResult: [],
+        currentPage: 1,
+        pageLimit: 10,
         url: 'https://en.wikipedia.org/w/api.php?action=query&format=json&list=search&callback=?&srlimit=100&srsearch='
     };
 
@@ -65,6 +67,16 @@ $(function() {
             });
 
 
+            // Page Clicked
+            var listContainer = $('.list-container');
+            listContainer.on('click', '.page-button', function(e){
+                // rerender pagination
+                // rerender list
+                viewModel.changePage(parseInt(this.innerText));
+                return false;
+            });
+
+
             console.log("end view init");
         },
 
@@ -72,30 +84,54 @@ $(function() {
         renderSearchResult: function() {
             console.log("start rendering view");
 
-            var lineToAppend = '';
+            var searchResultHtml = '';
 
             if(model.searchResult.length) {
-                for(i=0;i < model.searchResult.length;i++) {
-                    lineToAppend += '<li class="search-item"><a href="https://en.wikipedia.org/?curid=' + model.searchResult[i].pageid + '" target="_blank">';
-                    lineToAppend += '<h4>' + (i+1) + '. ' + model.searchResult[i].title + '</h4>';
-                    lineToAppend += '<p>' + model.searchResult[i].snippet + '</p>';
-                    lineToAppend += '</a></li>';
+
+                var startIndex = (model.currentPage-1)*10;
+                var endIndex = startIndex + model.pageLimit;
+                startIndex
+                for(i=startIndex;i < endIndex;i++) {
+                    searchResultHtml += '<li class="search-item"><a href="https://en.wikipedia.org/?curid=' + model.searchResult[i].pageid + '" target="_blank">';
+                    searchResultHtml += '<h4>' + (i+1) + '. ' + model.searchResult[i].title + '</h4>';
+                    searchResultHtml += '<p>' + model.searchResult[i].snippet + '</p>';
+                    searchResultHtml += '</a></li>';
                 }
             } else {
-                lineToAppend += '<li class="search-item">';
-                lineToAppend += '<h3>Your search did not match any documents.</h4>';
-                lineToAppend += '<h4>Suggestions:</h4>';
-                lineToAppend += '<ol>';
-                lineToAppend += '<li>Make sure that all words are spelled correctly.</li>';
-                lineToAppend += '<li>Try different keywords.</li>';
-                lineToAppend += '<li>Try more general keywords.</li>';
-                lineToAppend += '</ol>';
-                lineToAppend += '</li>';
+                searchResultHtml += '<li class="search-item">';
+                searchResultHtml += '<h3>Your search did not match any documents.</h4>';
+                searchResultHtml += '<h4>Suggestions:</h4>';
+                searchResultHtml += '<ol>';
+                searchResultHtml += '<li>Make sure that all words are spelled correctly.</li>';
+                searchResultHtml += '<li>Try different keywords.</li>';
+                searchResultHtml += '<li>Try more general keywords.</li>';
+                searchResultHtml += '</ol>';
+                searchResultHtml += '</li>';
             }
 
-            $(".searchResultList").html(lineToAppend);
+            $(".searchResultList").html(searchResultHtml);
 
             console.log("end rendering view");
+            this.renderPagination();
+        },
+
+
+        renderPagination: function() {
+            console.log("start rendering pagination");
+
+            var totalPages = Math.ceil(model.searchResult.length/10);
+            var paginationHtml = '';
+            var classForButton = '';
+
+
+            for(a=0;a<totalPages;a++) {
+                classForButton = (a+1 === model.currentPage) ? "page-button active": "page-button";
+                paginationHtml+='<button class="' + classForButton + '">' + (a+1) + '</button>';
+            }
+
+            $(".page-list").html(paginationHtml);
+
+            console.log("end rendering pagination");
         }
     };
 
@@ -128,6 +164,7 @@ $(function() {
 
                 console.log("end fetch data");
             }).then(function() {
+                model.currentPage = 1;
                 view.renderSearchResult();
             }).then(function() {
                 viewModel.showList();
@@ -194,6 +231,20 @@ $(function() {
                 $('.more-info').css('top', '100vh');
                 $('.more-info').css('display', 'none');
             });
+        },
+
+        changePage: function(pageNo) {
+            if(pageNo !== model.currentPage) {
+                model.currentPage = pageNo;
+
+                a = $(".list-container").animate( {opacity: 0}, 500 );
+                a.promise().done(function() {
+                    view.renderSearchResult();
+                }).then(function() {
+                    $(".list-container").animate( {opacity: 1}, 500 );
+                });
+
+            }
         }
     };
 
