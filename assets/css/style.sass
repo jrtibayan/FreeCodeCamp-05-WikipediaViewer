@@ -39,21 +39,6 @@ input[type="text"]
     text-align: center
 
 
-main
-    background: $main-background
-    color: $main-color
-    height: main-height()
-    margin-top: -40px
-    overflow: auto
-
-
-.search-container
-    text-align: center
-
-.list-container
-    opacity: 0
-
-
 .buttons
     background: $buttons-background
     height: 40px
@@ -77,39 +62,47 @@ main
         background: $light-gray
 
 
-ul
-    list-style-type: none
-    padding: 0
-    li
-        padding: 0  10px 10px 10px
-        margin-bottom: 10px
-        &.search-item
-            background: $search-item-background
-            border: 1px solid $search-item-border-color
-            border-radius: 7px
-            a
-                color: $search-item-color
-                text-decoration: none
-        h4
-            border-bottom: 1px solid $search-item-header-border-bottom
-            font-size: 1.4em
-            margin: 10px 0 10px
-            padding-bottom: 10px
-        p
-            font-size: 1em
-            margin: 0px 0 0px
-
-
-.page-list
-    margin-bottom: 60px
-    text-align: center
-    .page-button
-        border: none
+main
+    background: $main-background
+    color: $main-color
+    height: main-height()
+    margin-top: -40px
+    overflow: auto
+    ul
+        list-style-type: none
+        padding: 0
+        li
+            padding: 0  10px 10px 10px
+            margin-bottom: 10px
+            &.search-item
+                background: $search-item-background
+                border: 1px solid $search-item-border-color
+                border-radius: 7px
+                a
+                    color: $search-item-color
+                    text-decoration: none
+            h4
+                border-bottom: 1px solid $search-item-header-border-bottom
+                font-size: 1.4em
+                margin: 10px 0 10px
+                padding-bottom: 10px
+            p
+                font-size: 1em
+                margin: 0px 0 0px
+    .search-container
         text-align: center
-        width: 10%
-    &.active
-    background: #3c3c3c
-    color: #fff
+    .list-container
+        opacity: 0
+    .page-list
+        margin-bottom: 60px
+        text-align: center
+        .page-button
+            border: none
+            text-align: center
+            width: 10%
+            &.active
+                background: #3c3c3c
+                color: #fff
 
 
 footer

@@ -42,22 +42,6 @@ input[type="text"] {
   text-align: center;
 }
 
-main {
-  background: #000;
-  color: #fff;
-  height: calc(100vh - 40px);
-  margin-top: -40px;
-  overflow: auto;
-}
-
-.search-container {
-  text-align: center;
-}
-
-.list-container {
-  opacity: 0;
-}
-
 .buttons {
   background: #000;
   height: 40px;
@@ -84,44 +68,58 @@ main {
   background: #efefef;
 }
 
-ul {
+main {
+  background: #000;
+  color: #fff;
+  height: calc(100vh - 40px);
+  margin-top: -40px;
+  overflow: auto;
+}
+main ul {
   list-style-type: none;
   padding: 0;
 }
-ul li {
+main ul li {
   padding: 0 10px 10px 10px;
   margin-bottom: 10px;
 }
-ul li.search-item {
+main ul li.search-item {
   background: rgba(255, 255, 255, 0.07);
   border: 1px solid #000;
   border-radius: 7px;
 }
-ul li.search-item a {
+main ul li.search-item a {
   color: #fff;
   text-decoration: none;
 }
-ul li h4 {
+main ul li h4 {
   border-bottom: 1px solid rgba(255, 255, 255, 0.09);
   font-size: 1.4em;
   margin: 10px 0 10px;
   padding-bottom: 10px;
 }
-ul li p {
+main ul li p {
   font-size: 1em;
   margin: 0px 0 0px;
 }
-
-.page-list {
+main .search-container {
+  text-align: center;
+}
+main .list-container {
+  opacity: 0;
+}
+main .page-list {
   margin-bottom: 60px;
   text-align: center;
-  background: #3c3c3c;
-  color: #fff;
 }
-.page-list .page-button {
+main .page-list .page-button {
   border: none;
   text-align: center;
   width: 10%;
+}
+main .page-list .page-button.active {
+  background: #3c3c3c;
+  color: #fff;
 }
 
 footer {
