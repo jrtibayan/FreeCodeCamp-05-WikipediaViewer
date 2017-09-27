@@ -1,4 +1,4 @@
-/* sass --watch style.scss:style.css */
+/* sass --watch style.scss:style.css --style expanded */
 
 @function main-height() {
   @return calc(100vh - 40px);

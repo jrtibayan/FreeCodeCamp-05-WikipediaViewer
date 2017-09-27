@@ -1,4 +1,4 @@
-/* sass --watch style.scss:style.css */
+/* sass --watch style.scss:style.css --style expanded */
 *, *:before, *:after {
   box-sizing: border-box;
 }
@@ -134,6 +134,16 @@ footer {
 }
 footer p {
   margin-top: 0;
+}
+footer button {
+  background: #fff;
+  border: 1px solid #2f2f2f;
+  border-radius: 4px;
+  color: #2f2f2f;
+  height: 25px;
+  line-height: 20px;
+  width: auto;
+  font-size: 14px;
 }
 
 .more-info {
