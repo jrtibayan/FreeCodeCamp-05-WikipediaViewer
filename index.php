@@ -85,6 +85,15 @@
                 <li>JQuery</li>
                 <li>Wikipedia API</li>
             </ul>
+            <h3>Project Requirements</h3>
+            <ul>
+                <li>Can search Wikipedia entries in a search box and see the resulting Wikipedia entries. [DONE]</li>
+                <li>Can click a button to see a random Wikipedia entry. [DONE]</li>
+            </ul>
+            <h3>Added Fearture</h3>
+            <ul>
+                <li>List search results on different pages. Only display articles of the selected page. [DONE]</li>
+            </ul>
             <p>PS: The search is limited to the top 100 results. Since the purpose of this app is to demonstrate my knowledge on the listed technolgies used, I believe setting a limit to the result should not reflect badly on my skills. This will also make the app search faster.</p>
 
             <h3>Comment / Suggestions</h3>
