@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <meta property="og:title" content="Wikipedia Viewer by JericT" />
-    <meta property="og:description" content="Don't like the UI of wikipedia? Try out my Wikipedia Viewer App. It's simple and easy to use. Try it now." />
+    <meta property="og:description" content="Don't like the UI of wikipedia? Try out my Wikipedia Viewer App. It's simple and easy to use. Enjoy!" />
     <meta property="og:image" content="https://github.com/jrtibayan/FreeCodeCamp-05-WikipediaViewer/raw/master/assets/img/mockdrop.jpg" />
 
     <title>Wikipedia Viewer</title>
