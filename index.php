@@ -91,7 +91,7 @@
             <p>Have anything to say? Feel free to send me your thoughts on the form below.</p>
             <form method="POST" action="https://formspree.io/jeric_tibayan-webdev@yahoo.com">
                 <input type="text" name="name" id="name" placeholder="Name">
-                <textarea rows="5" name="quote" id="quote" placeholder="Quote"></textarea>
+                <textarea rows="5" name="message" id="message" placeholder="Message"></textarea>
                 <input type="submit" class="btn">
             </form>
             <button class="btn close-btn">CLOSE</button>
