@@ -138,10 +138,10 @@ footer button {
   border: 1px solid #2f2f2f;
   border-radius: 4px;
   color: #2f2f2f;
+  font-size: 14px;
   height: 25px;
   line-height: 20px;
   width: auto;
-  font-size: 14px;
 }
 
 .more-info {
