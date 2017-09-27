@@ -34,7 +34,7 @@
                 <div class="Aligner-item">
                     <div class="container">
                         <p>Please type what you want to search below... </p>
-                        <input type="text" class="searchInput" placeholder="Type here then press ENTER">
+                        <input type="text" class="searchInput" placeholder="search keyword/s">
                         <p>Press ENTER when done</p>
                     </div>
                 </div>
@@ -65,7 +65,7 @@
 
     <div class="more-info">
         <div class="container">
-            <h3>About this APP</h3>
+            <h3 id="more-info-title">About this APP</h3>
             <p>This app is the 5th project and a requirement for the Free Code Camp FRONT END Developer Certificate.</p>
             <p>This app retrieves articles from the WIKIPEDIA API, sorts them out according to title before displaying the list of results.</p>
 

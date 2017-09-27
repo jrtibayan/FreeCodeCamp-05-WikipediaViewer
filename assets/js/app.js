@@ -46,9 +46,11 @@ $(function() {
             });
 
 
-            // show more details
+            // hide more details
             var closeInfoBtnEle = $('.close-btn');
             closeInfoBtnEle.on('click', function(e) {
+                location.href = "#"; // required to work around a bug in WebKit (Chrome / Safari)
+                location.href = "#more-info-title";
                 viewModel.hideMoreInfo();
             });
 
@@ -242,11 +244,20 @@ $(function() {
                     view.renderSearchResult();
                 }).then(function() {
                     $(".list-container").animate( {opacity: 1}, 500 );
+                }).then(function() {
+                    // scroll to top of page
+                    location.href = "#"; // required to work around a bug in WebKit (Chrome / Safari)
+                    location.href = "#title";
                 });
+
 
             }
         }
     };
+
+
+
+
 
     viewModel.init();
 
