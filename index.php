@@ -78,7 +78,7 @@
 
             <p>This app passed Googles Mobile-Friendly Test and the W3C CSS3 Validation</p>
             <p>
-                <a href="http://jigsaw.w3.org/css-validator/check/referer">
+                <a href="http://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Ffcc-05-wikipedia-viewer.herokuapp.com%2Fassets%2Fcss%2Fstyle.css&profile=css3&usermedium=all&warning=1&vextwarning=">
                     <img style="border:0;width:88px;height:31px"
                     src="http://jigsaw.w3.org/css-validator/images/vcss-blue"
                     alt="Valid CSS!" />
